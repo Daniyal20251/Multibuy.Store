@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MultiBuy.Store | Fashion, Accessories & Online Shopping Store</title>
+  <meta name="description" content=" is an online shopping store offering fashion wear, watches, toys, kitchen accessories, beauty products, lifestyle essentials and trending items with stylish collections and affordable prices in Pakistan.">
+  <meta name="keywords" content="MultiBuy-Store, online shopping Pakistan, fashion store, watches, toys, kitchen accessories, beauty products, lifestyle products, women fashion, online store Pakistan">
+  <meta name="author" content="MultiBuy-Store">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://MultiBuy.Store/">
+  <meta property="og:title" content="MultiBuy-Store | Online Shopping Store">
+  <meta property="og:description" content="Explore fashion, watches, toys, kitchen accessories and trending products at MultiBuy-Store Pakistan.">
+  <meta property="og:image" content="https://MultiBuy.Store/Store%20icons/MultiBuy-Store.png">
+  <meta property="og:url" content="https://MultiBuy.Store/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MultiBuy-Store">
+  <meta name="twitter:description" content="Online shopping store for fashion, accessories and lifestyle products in Pakistan.">
+  <meta name="twitter:image" content="https://MultiBuy.Store/Store%20icons/MultiBuy-Store.png">
+  <link rel="icon" type="image/png" href="Store icons/MultiBuy-Store.png">
+  <meta name="theme-color" content="#ff6b00">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Store.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "MultiBuy-Store",
+    "url": "https://MultiBuy.Store/",
+    "logo": "https://MultiBuy.Store/Store%20icons/MultiBuy-Store.png",
+    "description": "Online shopping store offering fashion wear, accessories, watches, toys, kitchen items and lifestyle products in Pakistan.",
+    "address": { "@type": "PostalAddress", "addressCountry": "PK" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-left">
+      <div class="logo1">
+        <img id="sellerLogo" src="Store icons/MultiBuy-Store.png" width="40" height="40" alt="Seller Logo">
+      </div>
+      <h1 id="sellerName"></h1>
+    </div>
+    <div class="search-wrap" id="searchWrap">
+      <div class="search-input-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" class="search" placeholder="Search products...">
+        <button class="search-clear-btn" id="searchClearBtn"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SEARCH SUGGESTIONS DROPDOWN ===== -->
+  <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+
+  <!-- ===== SEARCH PANEL (Recent + Popular) ===== -->
+  <div id="searchPanel" class="search-panel">
+    <div class="panel-header">
+      <span class="recent-title"><i class="fas fa-history"></i> Recent Searches</span>
+      <button id="clearHistoryBtn" class="clear-btn">Clear All</button>
+    </div>
+    <ul id="recentSearches"></ul>
+    <div class="popular-section">
+      <p class="popular-label"><i class="fas fa-fire"></i> Popular</p>
+      <div class="popular-chips">
+        <span onclick="fillAndSearch('Summer')">Summer Collection</span>
+        <span onclick="fillAndSearch('Lawn')">Lawn Dresses</span>
+        <span onclick="fillAndSearch('Occasion')">Occasion Wear</span>
+        <span onclick="fillAndSearch('Khaddar')">Khaddar</span>
+        <span onclick="fillAndSearch('Watch')">Watches</span>
+        <span onclick="fillAndSearch('Jewelry')">Jewelry</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 64px;"></div>
+
+  <!-- ===== ADS SKELETON ===== -->
+  <div id="adsSkeleton" class="ads-skeleton">
+    <div class="skeleton-ad shimmer"></div>
+  </div>
+
+  <!-- ===== SWIPER ADS SLIDER ===== -->
+  <div class="swiper mySwiper" id="adSlider" style="display:none;">
+    <div class="swiper-wrapper" id="swiperWrapper"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- ===== FLASH SALE SECTION ===== -->
+  <div class="section-block" id="flashSaleBox" style="display:none;">
+    <div class="section-header">
+      <div class="section-title flash-title">
+        <span>🔥</span> Flash Sale
+        <span class="live-badge">LIVE</span>
+      </div>
+      <a class="see-all-btn" href="#">See All</a>
+    </div>
+    <div id="flashSaleContainer" class="flash-sale-grid"></div>
+  </div>
+
+  <!-- ===== RECENTLY VIEWED SECTION ===== -->
+  <div class="section-block" id="recentlyViewedBox" style="display:none;">
+    <div class="section-header">
+      <div class="section-title" style="color:#5c5caa;">
+        <span>️👀</span> Recently Viewed
+      </div>
+    </div>
+    <div id="recentlyViewedContainer" class="flash-sale-grid"></div>
+  </div>
+
+  <!-- ===== PRODUCTS SKELETON ===== -->
+  <div id="skeletonContainer" class="skeleton-container">
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-title shimmer"></div><div class="skeleton-price shimmer"></div></div>
+  </div>
+
+  <!-- ===== ALL PRODUCTS HEADER ===== -->
+  <div class="products-section-header" id="allProductsHeader" style="display:none;">
+    <div class="section-title"><span>🛍️</span> All Products</div>
+  </div>
+
+  <!-- ===== PRODUCT GRID ===== -->
+  <div id="itemContainer" class="container" style="display:none;"></div>
+
+  <!-- ===== BOTTOM NAV ===== -->
+  <nav class="bar">
+    <a href="index.html" id="homeLink" class="active">
+      <img src="Store icons/Home.png" width="22" height="22" alt="Home">
+      <span>Home</span>
+    </a>
+    <a href="Categories Stores.html" id="categoriesLink">
+      <img src="Store icons/Categories.png" width="22" height="22" alt="Categories">
+      <span>Categories</span>
+    </a>
+    <a href="Cart Stores.html" id="cartLink">
+      <img src="Store icons/Cart.png" width="22" height="22" alt="Cart">
+      <span>Cart</span>
+    </a>
+    <a href="Profile Stores.html" id="profileLink">
+      <img src="Store icons/Profile.png" width="22" height="22" alt="Profile">
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <script src="Store.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
