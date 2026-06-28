@@ -33,14 +33,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     logo: "Store icons/MultiBuy-Store.png"
   };
 
+  // ── THEME: Seller ka selected theme apply karo ──────────────────
+  if (typeof DelightTheme !== "undefined") {
+    DelightTheme.apply(STORE_CONFIG.phone);
+  }
+  // ────────────────────────────────────────────────────────────────
+
   const AD_NAMES = [
-    "MultiBuy Store",
-    "MultiBuy Store1",
-    "MultiBuy Store2",
-    "MultiBuy Store3",
-    "MultiBuy Store4",
-    "MultiBuy Store5",
-    "MultiBuy Store6"
+    "Cucu-collection",
+    "Cucu-collection1",
+    "Cucu-collection2",
+    "Cucu-collection3",
+    "Cucu-collection4",
+    "Cucu-collection5",
+    "Cucu-collection6"
   ];
 
   // ─── Helpers ───────────────────────────────────────────────────
